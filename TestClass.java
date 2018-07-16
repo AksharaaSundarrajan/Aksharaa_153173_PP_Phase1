@@ -72,7 +72,7 @@ public class TestClass {
 		
 	}
 	//4
-	@Test(expected=InvalidInputException.class)
+	@Test(expected=NullPointerException.class)
 	public void createAccountInvalidName2()
 	{
 		
@@ -131,15 +131,11 @@ public class TestClass {
 	}
 	//23
 	@Test
-	public void fundTransferValid()
-	{
-		Customer cust = new Customer();
+	public void fundTransferValid(){
 		String sourceMobile ="9900112212";
 		String targetMobile = "9963242422";
-		BigDecimal amount = new BigDecimal("100.00");
-		cust = service.fundTransfer(sourceMobile, targetMobile, amount);
-		
-	}
+		service.fundTransfer(sourceMobile, targetMobile, new BigDecimal("10.00"));
+		}
 	//8
 	@Test(expected=InvalidInputException.class)
 	public void fundTransferInvalidSourceMobile()
@@ -166,33 +162,31 @@ public class TestClass {
 	@Test(expected=InvalidInputException.class)
 	public void fundTransferInvalidAmount()
 	{
-		Customer cust = new Customer();
 		String sourceMobile ="9922950519";
 		String targetMobile = "9963242422";
 		BigDecimal amount = new BigDecimal("0.00");
-		cust = service.fundTransfer(sourceMobile, targetMobile, amount);
+		service.fundTransfer(sourceMobile, targetMobile, amount);
 		
 	}
 	//21
 	@Test(expected=InvalidInputException.class)
 	public void fundTransferInvalidAmount2()
 	{
-		Customer cust = new Customer();
 		String sourceMobile ="9922950519";
 		String targetMobile = "9963242422";
 		BigDecimal amount = new BigDecimal("-100.00");
-		cust = service.fundTransfer(sourceMobile, targetMobile, amount);
+		service.fundTransfer(sourceMobile, targetMobile, amount);
 		
 	}
 	//11
 	@Test(expected=InvalidInputException.class)
 	public void fundTransferSourceEqualsTarget()
 	{
-		Customer cust = new Customer();
+		
 		String sourceMobile ="9922950519";
 		String targetMobile = "9922950519";
 		BigDecimal amount = new BigDecimal("100.00");
-		cust = service.fundTransfer(sourceMobile, targetMobile, amount);
+		service.fundTransfer(sourceMobile, targetMobile, amount);
 		
 	}
 	//12
@@ -200,7 +194,7 @@ public class TestClass {
 	public void fundTransferInsufficientBalance()
 	{
 		Customer cust = new Customer();
-		String sourceMobile ="909090";
+		String sourceMobile ="9922950519";
 		String targetMobile = "9963242422";
 		BigDecimal amount = new BigDecimal("1000000.00");
 		cust = service.fundTransfer(sourceMobile, targetMobile, amount);
@@ -247,7 +241,7 @@ public class TestClass {
 	{
 		Customer cust = new Customer();
 		String mobile ="9963242422";
-		BigDecimal amount = new BigDecimal("100.00");
+		BigDecimal amount = new BigDecimal("10.00");
 		cust = service.withdrawAmount(mobile, amount);
 	}
 	//16
