@@ -66,7 +66,7 @@ private Map<String, ArrayList<String>> transactions;
 		if(b)
 		{
 			System.out.println("Account successfully created");
-			repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "CREATE ACCOUNT", "SUCCESS", customer.getWallet().getBalance()));
+			//repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "CREATE ACCOUNT", "SUCCESS", customer.getWallet().getBalance()));
 		}
 		}
 		else
@@ -139,9 +139,9 @@ private Map<String, ArrayList<String>> transactions;
 			
 			balance1.setBalance(deductedBalance);
 			BigDecimal addedbalance = balance2.getBalance().add(amount);
-			repo.setTransactions(new Transaction(sourceMobileNo, java.time.LocalDate.now(), "FUND TRANSFER", "SUCCESS", customer.getWallet().getBalance()));
+			//repo.setTransactions(new Transaction(sourceMobileNo, java.time.LocalDate.now(), "FUND TRANSFER", "SUCCESS", customer.getWallet().getBalance()));
 			balance2.setBalance(addedbalance);
-			repo.setTransactions(new Transaction(targetMobileNo, java.time.LocalDate.now(), "FUND TRANSFER", "SUCCESS", cust2.getWallet().getBalance()));
+			//repo.setTransactions(new Transaction(targetMobileNo, java.time.LocalDate.now(), "FUND TRANSFER", "SUCCESS", cust2.getWallet().getBalance()));
 			return cust1;
 		}
 		else
@@ -171,7 +171,7 @@ private Map<String, ArrayList<String>> transactions;
 		{
 			BigDecimal balanceAfterDeposit = wallet.getBalance().add(amount);
 			wallet.setBalance(balanceAfterDeposit);
-			repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "DEPOSIT", "SUCCESS", customer.getWallet().getBalance()));
+			//repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "DEPOSIT", "SUCCESS", customer.getWallet().getBalance()));
 		}
 		else
 		{
@@ -200,7 +200,7 @@ private Map<String, ArrayList<String>> transactions;
 			wallet.setBalance(balanceAfterWithdrawal);
 			/*transactionDetails.add("You withdrew "+amount.toString());
 			transactions.put(mobileNo, transactionDetails);*/
-			repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "WITHDRAWAL", "SUCCESS", customer.getWallet().getBalance()));
+			//repo.setTransactions(new Transaction(mobileNo, java.time.LocalDate.now(), "WITHDRAWAL", "SUCCESS", customer.getWallet().getBalance()));
 			}
 			else
 			{
